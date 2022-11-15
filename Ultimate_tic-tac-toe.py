@@ -57,4 +57,32 @@
   
   
   #isWinner(games[4],playerOneLetter)
- 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Insert variable and import declearations 
+  
+  
+print("Welcome to ultimate tic-tac-toe!" + "\n")
+
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+
+#Prints visual representation of global board...
+
+#Top row: 7, 8, 9
+#Middle row: 4, 5, 6
+#Bottom 3 rows: 1 2 3
+
+
+
+

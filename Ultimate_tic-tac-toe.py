@@ -86,8 +86,6 @@ print('-------------------------')
 #Middle row: 4, 5, 6
 #Bottom 3 rows: 1 2 3
 
-
-
 def chose_player_letter():
   
   letter = ''
@@ -104,11 +102,11 @@ def chose_player_letter():
     return ['O', 'X']
           
 def who_go_first():       
-  if random.randint(0,1) == 0:
-    return 'computer'
+  if random.randint(0,1) == 0: 
+    return 'player1'              #placeholder for player1's move  
 
   else:
-    return 'player'          
+    return 'player2'              #placeholder for player2's move  
        
 #--------------------------------------------------------------------
 #Quinn's section, checking for local and global win conditions

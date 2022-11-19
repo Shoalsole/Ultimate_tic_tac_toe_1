@@ -61,6 +61,8 @@
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Insert variable and import declearations 
   
+import random
+  
   
 print("Welcome to ultimate tic-tac-toe!" + "\n")
 
@@ -85,6 +87,29 @@ print('-------------------------')
 #Bottom 3 rows: 1 2 3
 
 
+
+def chose_player_letter():
+  
+  letter = ''
+  while not (letter == 'X' or letter == 'O'):
+    print("Do you want to play as 'X' or 'O'?"
+    letter = input().upper()
+      
+          
+  if letter == 'X':
+          return['X', 'O']
+
+          
+  else:
+    return ['O', 'X']
+          
+def who_go_first():       
+  if random.randint(0,1) == 0:
+    return 'computer'
+
+  else:
+    return 'player'          
+       
 #--------------------------------------------------------------------
 #Quinn's section, checking for local and global win conditions
 

@@ -147,15 +147,34 @@ if globalWin(gameState,playerOneLetter): #this function will always be called wi
 else:
   pass
   #continue playing the game
+          
+          
 
 
+print("Welcome to ULTIMATE Tic-Tac-Toe!")
 
+while True:
+gameOne = [" "]*10
+gameTwo = [" "]*10
+gameThree = [" "]*10
+gameFour = [" "]*10
+gameFive = [" "]*10
+gameSix = [" "]*10
+gameSeven = [" "]*10
+gameEight = [" "]*10
+gameNine = [" "]*10
 
+games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
+gameState = [" "]*9
+playerOneLetter,playerTwoLetter = inputPlayerLetter()
+turn = whoGoesFirst()
+print(turn + " will go first")
+gameIsPlaying = True         
 
+#call the function that decides the first board here          
 
-
-
-
+while gameIsPlaying:
+  
 
 
 

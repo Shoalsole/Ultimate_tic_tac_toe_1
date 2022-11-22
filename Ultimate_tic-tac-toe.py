@@ -135,18 +135,7 @@ def globalWin(gameState,player):
   (gameState[8] == player and gameState[5] == player and gameState[2] == player) or 
   (gameState[6] == player and gameState[4] == player and gameState[2] == player) or 
   (gameState[8] == player and gameState[4] == player and gameState[0] == player))  #These numbers don't match how the original guy does his game checks. Thats because each game is a list of ten entries, whereas the overal games list has only 9 entries. To correct for this, 1 is taken away from each number      
-      
-if localWin(game[nextGame],playerOneLetter): #This would be how you use the localWin function to check if one of the games has been won
-  gameState[nextGame-1] = playerOneLetter
-else:
-  pass
 
-if globalWin(gameState,playerOneLetter): #this function will always be called with gameState
-  #stop the game
-  pass #this pass is a playholder for now
-else:
-  pass
-  #continue playing the game
           
           
 
@@ -154,41 +143,67 @@ else:
 print("Welcome to ULTIMATE Tic-Tac-Toe!")
 
 while True:
-gameOne = [" "]*10
-gameTwo = [" "]*10
-gameThree = [" "]*10
-gameFour = [" "]*10
-gameFive = [" "]*10
-gameSix = [" "]*10
-gameSeven = [" "]*10
-gameEight = [" "]*10
-gameNine = [" "]*10
+  gameOne = [" "]*10
+  gameTwo = [" "]*10
+  gameThree = [" "]*10
+  gameFour = [" "]*10
+  gameFive = [" "]*10
+  gameSix = [" "]*10
+  gameSeven = [" "]*10
+  gameEight = [" "]*10
+  gameNine = [" "]*10
 
-games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
-gameState = [" "]*9
-playerOneLetter,playerTwoLetter = inputPlayerLetter()
-turn = whoGoesFirst()
-print(turn + " will go first")
-gameIsPlaying = True         
+  games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
+  gameState = [" "]*9
+  playerOneLetter,playerTwoLetter = inputPlayerLetter()
+  turn = whoGoesFirst()
+  print(turn + " will go first")
+  gameIsPlaying = True         
 
 #call the function that decides the first board here          
 
-while gameIsPlaying:
+  while gameIsPlaying:
+    if turn == "playerOne"
+      #draw the board
+      #get the move from the player
+      #is the move in a full board
+          #get new player move
+      #make the player move
+          #change the game you're playing in
+      if localWin(game[nextGame],playerOneLetter): #This would be how you use the localWin function to check if one of the games has been won
+        gameState[nextGame-1] = playerOneLetter
+      else:
+        pass  
+          
+      if globalWin(gameState,playerOneLetter): #this function will always be called with gameState
+        print("player one has won! Congratulations!")
+        break
+      else:
+        pass
+  #continue playing the game
+          #stop the game
+      #change the turn variable
+    else: 
+      #draw the board     
+      #get the player two move
+      #is the move in a full board
+        #get new player move
+      #make the player two move
+      #Change the game you're playing in 
+      if localWin(game[nextGame],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won
+        gameState[nextGame-1] = playerTwoLetter
+      else:
+        pass
+      if globalWin(gameState,playerTwoLetter): #this function will always be called with gameState
+        print("player two has won! Congratulations!")
+        break
+      else:
+        pass
+       #change the turn variable
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  playAgain = input("The game has ended. Would you like to play again?")
+  if playAgain.upper().startswith("N"):
+    break
 
 
 

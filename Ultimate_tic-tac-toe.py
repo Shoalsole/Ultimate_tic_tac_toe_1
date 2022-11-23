@@ -146,6 +146,13 @@ def who_go_first():
           
 #need a function where we prompt the player1 or player2 (whoever goes first) on which gam (out of 9) they want to play in. 
           #and prompts them to make a move
+          
+def choose_board(selection):
+		selection=' '
+		while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isBoardFree(board,int(selection)):
+			print("Which board do you want to go to?)
+			selection = input()
+		return int(selection)
        
 #--------------------------------------------------------------------
 #Quinn's section, checking for local and global win conditions

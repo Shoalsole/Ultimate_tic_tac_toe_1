@@ -76,19 +76,19 @@ print("The 3 entries in the top row correspond to the number 7, 8, 9.
       
 print("The 3 entries in the middle row correspond to the numbers 4, 5, 6, and same logic for the bottom 3 entries - very similar to the logic with each game as described above.") 
 
-#print('-------------------------')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('-------------------------')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('-------------------------')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('| . . . | . . . | . . . |')
-#print('-------------------------')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
       
 
       
@@ -143,6 +143,9 @@ def who_go_first():
 
   else:
     return 'player2'              #placeholder for player2's move  
+          
+#need a function where we prompt the player1 or player2 (whoever goes first) on which gam (out of 9) they want to play in. 
+          #and prompts them to make a move
        
 #--------------------------------------------------------------------
 #Quinn's section, checking for local and global win conditions

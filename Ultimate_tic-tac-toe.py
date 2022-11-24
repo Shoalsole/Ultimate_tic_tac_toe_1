@@ -131,9 +131,7 @@ def chose_player_letter():
       
           
   if letter == 'X':
-          return['X', 'O']
-
-          
+          return['X', 'O']      
   else:
     return ['O', 'X']
           
@@ -147,10 +145,10 @@ def who_go_first():
 #need a function where we prompt the player1 or player2 (whoever goes first) on which gam (out of 9) they want to play in. 
           #and prompts them to make a move
           
-def choose_board(selection):
+def choose_board():
 		selection=' '
 		while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isBoardFree(board,int(selection)):
-			print("Which board do you want to go to?)
+			print("Which board do you want to go to?")
 			selection = input()
 		return int(selection)
        
@@ -180,11 +178,33 @@ def globalWin(gameState,player):
   (gameState[6] == player and gameState[4] == player and gameState[2] == player) or 
   (gameState[8] == player and gameState[4] == player and gameState[0] == player))  #These numbers don't match how the original guy does his game checks. Thats because each game is a list of ten entries, whereas the overal games list has only 9 entries. To correct for this, 1 is taken away from each number      
 
-          
-          
+  
+print("Welcome to ultimate tic-tac-toe!" + "\n")
 
+print("The game is in 9 games of tic-tac toe. Of which, each tic-tac toe game is represented in one of the nine squares below. Within a tic-tac-toe game, the regular rules apply for tic-tac-toe.")
 
-print("Welcome to ULTIMATE Tic-Tac-Toe!")
+print('\n' + 'The games in the top row correspond to the numbers 7, 8, 9 respectively, same goes for the middle row, where the games correspond to the numbers 4, 5, 6. Same goes for the bottom row.")
+      
+print('\n" + "Within each instance of a tic-tac-toe game, the same rules of tic-tac-toe apply.")
+      
+print("The 3 entries in the top row correspond to the number 7, 8, 9. 
+      
+print("The 3 entries in the middle row correspond to the numbers 4, 5, 6, and same logic for the bottom 3 entries - very similar to the logic with each game as described above.") 
+
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('| . . . | . . . | . . . |')
+print('-------------------------')	  
+	
 
 while True:
   gameOne = [" "]*10
@@ -199,22 +219,26 @@ while True:
 
   games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
   gameState = [" "]*9
-  playerOneLetter,playerTwoLetter = inputPlayerLetter()
-  turn = whoGoesFirst()
+  playerOneLetter,playerTwoLetter = chose_player_letter()
+  print("Player one is",playerOneLetter,"and player two is",playerTwoLetter,sep=" ")    
+  turn = who_go_first()
   print(turn + " will go first")
-  gameIsPlaying = True         
+  nextGame = choose_board()
+  gameIsPlaying = True  
+  
+      
 
 #call the function that decides the first board here          
 
   while gameIsPlaying:
     if turn == "playerOne"
-      #draw the board
+      print_board()
+      #check if nextGame is in a full board
+      	#if yes, player can pick whaever
       #get the move from the player
-      #is the move in a full board
-          #get new player move
       #make the player move
           #change the game you're playing in
-      if localWin(game[nextGame],playerOneLetter): #This would be how you use the localWin function to check if one of the games has been won
+      if localWin(game[nextGame],playerOneLetter): 
         gameState[nextGame-1] = playerOneLetter
       else:
         pass  
@@ -226,14 +250,14 @@ while True:
         pass
   #continue playing the game
           #stop the game
-      #change the turn variable
+      turn = "playerTwo"
     else: 
-      #draw the board     
-      #get the player two move
-      #is the move in a full board
-        #get new player move
-      #make the player two move
-      #Change the game you're playing in 
+      print_board()     
+      #check if nextGame is in a full board
+      	#if yes, player can pick whaever
+      #get the move from the player
+      #make the player move
+          #change the game you're playing in
       if localWin(game[nextGame],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won
         gameState[nextGame-1] = playerTwoLetter
       else:
@@ -243,7 +267,7 @@ while True:
         break
       else:
         pass
-       #change the turn variable
+       turn = "playerOne"
   
   playAgain = input("The game has ended. Would you like to play again?")
   if playAgain.upper().startswith("N"):

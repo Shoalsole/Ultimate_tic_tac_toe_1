@@ -64,33 +64,33 @@
 import random
   
   
-print("Welcome to ultimate tic-tac-toe!" + "\n")
+# print("Welcome to ultimate tic-tac-toe!" + "\n")
 
-print("The game is in 9 games of tic-tac toe. Of which, each tic-tac toe game is represented in one of the nine squares below. Within a tic-tac-toe game, the regular rules apply for tic-tac-toe.")
+# print("The game is in 9 games of tic-tac toe. Of which, each tic-tac toe game is represented in one of the nine squares below. Within a tic-tac-toe game, the regular rules apply for tic-tac-toe.")
 
-print('\n' + 'The games in the top row correspond to the numbers 7, 8, 9 respectively, same goes for the middle row, where the games correspond to the numbers 4, 5, 6. Same goes for the bottom row.")
+# print('\n' + 'The games in the top row correspond to the numbers 7, 8, 9 respectively, same goes for the middle row, where the games correspond to the numbers 4, 5, 6. Same goes for the bottom row.")
       
-print('\n" + "Within each instance of a tic-tac-toe game, the same rules of tic-tac-toe apply.")
+# print('\n" + "Within each instance of a tic-tac-toe game, the same rules of tic-tac-toe apply.")
       
-print("The 3 entries in the top row correspond to the number 7, 8, 9. 
+# print("The 3 entries in the top row correspond to the number 7, 8, 9. 
       
-print("The 3 entries in the middle row correspond to the numbers 4, 5, 6, and same logic for the bottom 3 entries - very similar to the logic with each game as described above.") 
+# print("The 3 entries in the middle row correspond to the numbers 4, 5, 6, and same logic for the bottom 3 entries - very similar to the logic with each game as described above.") 
 
-print('-------------------------')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('-------------------------')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('-------------------------')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('| . . . | . . . | . . . |')
-print('-------------------------')
+# print('-------------------------')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('-------------------------')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('-------------------------')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('| . . . | . . . | . . . |')
+# print('-------------------------')
       
-
+#I moved this stuff further down the code (QW)
       
 
 def print_board(): #maybe prints the board if the condition of the game being started is true, elsewise do not print. 
@@ -178,7 +178,17 @@ def globalWin(gameState,player):
   (gameState[6] == player and gameState[4] == player and gameState[2] == player) or 
   (gameState[8] == player and gameState[4] == player and gameState[0] == player))  #These numbers don't match how the original guy does his game checks. Thats because each game is a list of ten entries, whereas the overal games list has only 9 entries. To correct for this, 1 is taken away from each number      
 
-  
+def getPlayerMove(board):
+# Let the player enter their move.
+	move = ' '
+        while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)): 
+          print('What is your next move? (1-9)')
+          move = input() #The integer assigned to move is where the player is making their move (QW)
+        return int(move)
+
+def makeMove(games, letter, move): 
+	games[nextGame-1][move] = letter #Recall: board is the section of the tictactoe board. Here, that section is being assigned to the move (QW)	  
+	  
 print("Welcome to ultimate tic-tac-toe!" + "\n")
 
 print("The game is in 9 games of tic-tac toe. Of which, each tic-tac toe game is represented in one of the nine squares below. Within a tic-tac-toe game, the regular rules apply for tic-tac-toe.")
@@ -235,9 +245,9 @@ while True:
       print_board()
       #check if nextGame is in a full board
       	#if yes, player can pick whaever
-      #get the move from the player
-      #make the player move
-          #change the game you're playing in
+      move = getPlayerMove(games[nextGame-1])
+      makeMove(games,playerOneLetter,move)
+          nextGame = move
       if localWin(game[nextGame],playerOneLetter): 
         gameState[nextGame-1] = playerOneLetter
       else:
@@ -255,9 +265,9 @@ while True:
       print_board()     
       #check if nextGame is in a full board
       	#if yes, player can pick whaever
-      #get the move from the player
-      #make the player move
-          #change the game you're playing in
+      move = getPlayerMove(games[nextGame-1])
+      makeMove(games,playerTwoLetter,move)
+          nextGame = move
       if localWin(game[nextGame],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won
         gameState[nextGame-1] = playerTwoLetter
       else:

@@ -185,6 +185,40 @@ def getPlayerMove(board):
           print('What is your next move? (1-9)')
           move = input() #The integer assigned to move is where the player is making their move (QW)
         return int(move)
+	  
+def globalisfull(gamestate):
+    for i in range(0,8):
+        if globalisfree(board,i):
+            return False
+    return True
+def localisfull(nextGamegame):
+    for i in range(0,8):
+        if localisfree(board,i):
+            return False
+    return True
+	  
+def whatiftie():
+    if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+         drawBoard(gamestate)
+         print('The game is a tie!')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+     turn = 'player1'
+    if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+         drawBoard(gamestate)
+         print('The game is a tie!')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+     turn = 'player2'
+    if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+         gameState[nextGame-1] = ('')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+         turn = 'player1'
+    if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+        gameState[nextGame-1] = ('')
+        else:
+         turn = 'player2'
 
 def makeMove(games, letter, move): 
 	games[nextGame-1][move] = letter #Recall: board is the section of the tictactoe board. Here, that section is being assigned to the move (QW)	  

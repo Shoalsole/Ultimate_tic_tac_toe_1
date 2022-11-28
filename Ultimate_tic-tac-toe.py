@@ -67,39 +67,39 @@
 
 import random
 
-def globalisfull(gamestate):
+def globalIsFull(gamestate):
     for i in range(0,8):
         if isSpaceFree(board,i):
             return False
     return True
-def localisfull(nextGamegame):
+def localIsFull(board):
     for i in range(0,8):
         if isSpaceFree(board,i):
             return False
     return True
 
-def whatiftie():
-    if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-         drawBoard(gamestate)
-         print('The game is a tie!')
-         break #Stop the loop, thus ending the game(QW)
-        else:
-     turn = 'player1'
-    if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-         drawBoard(gamestate)
-         print('The game is a tie!')
-         break #Stop the loop, thus ending the game(QW)
-        else:
-     turn = 'player2'
-    if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-         gameState[nextGame-1] = ('')
-         break #Stop the loop, thus ending the game(QW)
-        else:
-         turn = 'player1'
-    if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-        gameState[nextGame-1] = ('')
-        else:
-         turn = 'player2'
+# def whatiftie():
+#     if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+#          drawBoard(gamestate)
+#          print('The game is a tie!')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#      turn = 'player1'
+#     if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+#          drawBoard(gamestate)
+#          print('The game is a tie!')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#      turn = 'player2'
+#     if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+#          gameState[nextGame-1] = ('')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#          turn = 'player1'
+#     if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+#         gameState[nextGame-1] = ('')
+#         else:
+#          turn = 'player2'
 
 
 
@@ -282,10 +282,10 @@ while True:
       if globalWin(gameState,playerOneLetter): #this function will always be called with gameState
         print("player one has won! Congratulations!")
         break
-      if globalTie(gameState):
+      if globalIsFull(gameState):
         print("The game is a tie!")
         break
-      if isBoardFull(games[nextGame-1]):
+      if isLocalFull(games[nextGame-1]):
         gameState[nextGame-1] = "tie"
       nextGame = move
       turn = "2"
@@ -303,10 +303,10 @@ while True:
       if globalWin(gameState,playerTwoLetter): #this function will always be called with gameState
         print("player two has won! Congratulations!")
         break
-      if globalTie(gameState):
+      if globalIsFull(gameState):
         print("The game is a tie!")
         break
-      if isBoardFull(games[nextGame-1]):
+      if isLocalFull(games[nextGame-1]):
         gameState[nextGame-1] = "tie"
       nextGame = move
       turn = "1"

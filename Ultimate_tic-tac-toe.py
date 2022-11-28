@@ -65,19 +65,6 @@
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Insert variable and import declearations
 
-import random
-
-def globalIsFull(gamestate):
-    for i in range(0,8):
-        if isSpaceFree(board,i):
-            return False
-    return True
-def localIsFull(board):
-    for i in range(0,8):
-        if isSpaceFree(board,i):
-            return False
-    return True
-
 # def whatiftie():
 #     if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
 #          drawBoard(gamestate)
@@ -100,8 +87,24 @@ def localIsFull(board):
 #         gameState[nextGame-1] = ('')
 #         else:
 #          turn = 'player2'
+# I ended up being able to use globalIsFull to check for ties
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Insert variable and import declearations
+
+import random
 
 
+def globalIsFull(board):
+    for i in range(0,9):
+        if board[i] == " ":
+            return False
+    return True
+def localIsFull(board):
+    for i in range(0,9):
+        if isSpaceFree(board,i):
+            return False
+    return True
 
 def gameIsDone(gameState,nextGame):
   if gameState[nextGame-1] != " ":
@@ -109,13 +112,6 @@ def gameIsDone(gameState,nextGame):
   else:
     return False
 
-
-def isBoardFull(board):
-     # Return True if every space on the board has been taken. Otherwise, return False.
-     for i in range(0, 9):
-         if board[i] == ".":  # If variable "i" from 1 to 9 are all filled then return False. (XD)
-             return False
-     return True # returns True else wise. (XD)
 
 def print_board(): #maybe prints the board if the condition of the game being started is true, elsewise do not print.
 
@@ -171,8 +167,8 @@ def who_go_first():
 
 def choose_board(number):
     selection=' '
-    while selection not in '1 2 3 4 5 6 7 8 9'.split(): #or not isBoardFree(board,int(selection)):
-      print("Which board does player",number ,"want to go to?")
+    while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(games[nextGame-1],int(selection)):
+      print("Which board does player", number ,"want to go to?")
       selection = input()
     return int(selection)
 
@@ -205,6 +201,7 @@ def globalTie(board):
       if board[i] == " ": # If variable "i" from 1 to 9 are all filled then return False. (XD)
         return False
     return True # returns True else wise. (XD)
+
 def getPlayerMove(board):
 # Let the player enter their move.
     move = ' '
@@ -260,6 +257,7 @@ while True:
   print("Player one is",playerOneLetter,"and player two is",playerTwoLetter,sep=" ")
   turn = who_go_first()
   print("Player "+turn + " will go first")
+  nextGame = 0 #This is here so that the next line doesn't break the code
   nextGame = choose_board(turn)
   gameIsPlaying = True
 
@@ -285,7 +283,7 @@ while True:
       if globalIsFull(gameState):
         print("The game is a tie!")
         break
-      if isLocalFull(games[nextGame-1]):
+      if localIsFull(games[nextGame-1]):
         gameState[nextGame-1] = "tie"
       nextGame = move
       turn = "2"
@@ -306,7 +304,7 @@ while True:
       if globalIsFull(gameState):
         print("The game is a tie!")
         break
-      if isLocalFull(games[nextGame-1]):
+      if localIsFull(games[nextGame-1]):
         gameState[nextGame-1] = "tie"
       nextGame = move
       turn = "1"

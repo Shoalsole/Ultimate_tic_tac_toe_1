@@ -67,6 +67,41 @@
 
 import random
 
+def globalisfull(gamestate):
+    for i in range(0,8):
+        if isSpaceFree(board,i):
+            return False
+    return True
+def localisfull(nextGamegame):
+    for i in range(0,8):
+        if isSpaceFree(board,i):
+            return False
+    return True
+
+def whatiftie():
+    if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+         drawBoard(gamestate)
+         print('The game is a tie!')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+     turn = 'player1'
+    if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+         drawBoard(gamestate)
+         print('The game is a tie!')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+     turn = 'player2'
+    if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+         gameState[nextGame-1] = ('')
+         break #Stop the loop, thus ending the game(QW)
+        else:
+         turn = 'player1'
+    if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+        gameState[nextGame-1] = ('')
+        else:
+         turn = 'player2'
+
+
 
 def gameIsDone(gameState,nextGame):
   if gameState[nextGame-1] != " ":

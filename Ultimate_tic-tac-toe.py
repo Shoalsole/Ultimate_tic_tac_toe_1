@@ -115,25 +115,23 @@ def gameIsDone(gameState,nextGame):
 
 def print_board(): #maybe prints the board if the condition of the game being started is true, elsewise do not print.
 
-  print('----------------------------')
+  print('-------------')
 
-  print('|' + gameSeven[7] + gameSeven[8] + gameSeven[9] + '|' + gameEight[7] + gameEight[8] + gameEight[9] + '|' + gameNine[7] + gameNine[8] + gameNine[9] + '|')
-  print('|' + gameSeven[4] + gameSeven[5] + gameSeven[6] + '|' + gameEight[4] + gameEight[5] + gameEight[6] + '|' + gameNine[4] + gameNine[5] + gameNine[6] + '|')
-  print('|' + gameSeven[1] + gameSeven[2] + gameSeven[3] + '|' + gameEight[1] + gameEight[2] + gameEight[3] + '|' + gameNine[1] + gameNine[2] + gameNine[3] + '|')
+  print('|' + gameSeven[7] + gameSeven[8] + gameSeven[9] + '|' + gameEight[7] + gameEight[8] + gameEight[9] + '|' + gameNine[7] + gameNine[8] + gameNine[9] + '| \t')
+  print('|' + gameSeven[4] + gameSeven[5] + gameSeven[6] + '|' + gameEight[4] + gameEight[5] + gameEight[6] + '|' + gameNine[4] + gameNine[5] + gameNine[6] + '| \t')
+  print('|' + gameSeven[1] + gameSeven[2] + gameSeven[3] + '|' + gameEight[1] + gameEight[2] + gameEight[3] + '|' + gameNine[1] + gameNine[2] + gameNine[3] + '| \t')
 
-  print('----------------------------')
+  print('-------------    State of overall games')
 
-  print('|' + gameFour[7] + gameFour[8] + gameFour[9] + '|' + gameFive[7] + gameFive[8] + gameFive[9] + '|' + gameSix[7] + gameSix[8] + gameSix[9] + '|')
-  print('|' + gameFour[4] + gameFour[5] + gameFour[6] + '|' + gameFive[4] + gameFive[5] + gameFive[6] + '|' + gameSix[4] + gameSix[5] + gameSix[6] + '|')
-  print('|' + gameFour[1] + gameFour[2] + gameFour[3] + '|' + gameFive[1] + gameFive[2] + gameFive[3] + '|' + gameSix[1] + gameSix[2] + gameSix[3] + '|')
+  print('|' + gameFour[7] + gameFour[8] + gameFour[9] + '|' + gameFive[7] + gameFive[8] + gameFive[9] + '|' + gameSix[7] + gameSix[8] + gameSix[9] + '| \t' + gameState[6] +' | '+ gameState[7] +' | '+ gameState[8])
+  print('|' + gameFour[4] + gameFour[5] + gameFour[6] + '|' + gameFive[4] + gameFive[5] + gameFive[6] + '|' + gameSix[4] + gameSix[5] + gameSix[6] + '| \t' + gameState[3] +' | '+ gameState[4] +' | '+ gameState[5])
+  print('|' + gameFour[1] + gameFour[2] + gameFour[3] + '|' + gameFive[1] + gameFive[2] + gameFive[3] + '|' + gameSix[1] + gameSix[2] + gameSix[3] + '| \t' + gameState[0] +' | '+ gameState[1] +' | '+ gameState[2])
 
-  print('----------------------------')
+  print('-------------')
 
-  print('|' + gameOne[7] + gameOne[8] + gameOne[9] + '|' + gameTwo[7] + gameTwo[8] + gameTwo[9] + '|' + gameThree[7] + gameThree[8] + gameThree[9] + '|')
-  print('|' + gameOne[4] + gameOne[5] + gameOne[6] + '|' + gameTwo[4] + gameTwo[5] + gameTwo[6] + '|' + gameThree[4] + gameThree[5] + gameThree[6] + '|')
-  print('|' + gameOne[1] + gameOne[2] + gameOne[3] + '|' + gameTwo[1] + gameTwo[2] + gameTwo[3] + '|' + gameThree[1] + gameThree[2] + gameThree[3] + '|')
-
-  print('----------------------------')
+  print('|' + gameOne[7] + gameOne[8] + gameOne[9] + '|' + gameTwo[7] + gameTwo[8] + gameTwo[9] + '|' + gameThree[7] + gameThree[8] + gameThree[9] + '| \t')
+  print('|' + gameOne[4] + gameOne[5] + gameOne[6] + '|' + gameTwo[4] + gameTwo[5] + gameTwo[6] + '|' + gameThree[4] + gameThree[5] + gameThree[6] + '| \t')
+  print('|' + gameOne[1] + gameOne[2] + gameOne[3] + '|' + gameTwo[1] + gameTwo[2] + gameTwo[3] + '|' + gameThree[1] + gameThree[2] + gameThree[3] + '| \t')
 
 
 #Prints visual representation of global board...
@@ -254,9 +252,9 @@ while True:
   games = [gameOne,gameTwo,gameThree,gameFour,gameFive,gameSix,gameSeven,gameEight,gameNine]
   gameState = [" "]*9
   playerOneLetter,playerTwoLetter = chose_player_letter()
-  print("Player one is",playerOneLetter,"and player two is",playerTwoLetter,sep=" ")
+  print("Player one is",playerOneLetter,"and player two is",playerTwoLetter,"\n",sep=" ")
   turn = who_go_first()
-  print("Player "+turn + " will go first")
+  print("Player "+turn + " will go first \n")
   nextGame = 0 #This is here so that the next line doesn't break the code
   nextGame = choose_board(turn)
   gameIsPlaying = True
@@ -297,7 +295,6 @@ while True:
 
       if localWin(games[nextGame-1],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won
         gameState[nextGame-1] = playerTwoLetter
-      print(gameState)
       if globalWin(gameState,playerTwoLetter): #this function will always be called with gameState
         print("player two has won! Congratulations!")
         break
@@ -312,4 +309,26 @@ while True:
   playAgain = input("The game has ended. Would you like to play again?")
   if playAgain.upper().startswith("N"):
     break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

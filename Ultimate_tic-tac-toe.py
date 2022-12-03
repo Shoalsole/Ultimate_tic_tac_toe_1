@@ -21,40 +21,42 @@ def gameIsDone(gameState,nextGame):
   else:
     return False
 
+#-----------------------------Ray's section starts here below.
 
-def print_board(): #maybe prints the board if the condition of the game being started is true, elsewise do not print.
+def print_board(): # maybe prints the board if the condition of the game being started is true, elsewise do not print. (RW)
+                   # prints the entire board, including all nine local tic-tac-toe games and all nine spots within a local tic-tac-toe game. (RW)
 
-  print('-------------')
+  print('-------------')                    
 
   print('|' + gameSeven[7] + gameSeven[8] + gameSeven[9] + '|' + gameEight[7] + gameEight[8] + gameEight[9] + '|' + gameNine[7] + gameNine[8] + gameNine[9] + '| \t')
   print('|' + gameSeven[4] + gameSeven[5] + gameSeven[6] + '|' + gameEight[4] + gameEight[5] + gameEight[6] + '|' + gameNine[4] + gameNine[5] + gameNine[6] + '| \t')
   print('|' + gameSeven[1] + gameSeven[2] + gameSeven[3] + '|' + gameEight[1] + gameEight[2] + gameEight[3] + '|' + gameNine[1] + gameNine[2] + gameNine[3] + '| \t')
 
-  print('-------------    State of overall games')
+  print('-------------    State of overall games')             
 
   print('|' + gameFour[7] + gameFour[8] + gameFour[9] + '|' + gameFive[7] + gameFive[8] + gameFive[9] + '|' + gameSix[7] + gameSix[8] + gameSix[9] + '| \t' + gameState[6] +' | '+ gameState[7] +' | '+ gameState[8])
   print('|' + gameFour[4] + gameFour[5] + gameFour[6] + '|' + gameFive[4] + gameFive[5] + gameFive[6] + '|' + gameSix[4] + gameSix[5] + gameSix[6] + '| \t' + gameState[3] +' | '+ gameState[4] +' | '+ gameState[5])
   print('|' + gameFour[1] + gameFour[2] + gameFour[3] + '|' + gameFive[1] + gameFive[2] + gameFive[3] + '|' + gameSix[1] + gameSix[2] + gameSix[3] + '| \t' + gameState[0] +' | '+ gameState[1] +' | '+ gameState[2])
 
-  print('-------------')
+  print('-------------')                    
 
   print('|' + gameOne[7] + gameOne[8] + gameOne[9] + '|' + gameTwo[7] + gameTwo[8] + gameTwo[9] + '|' + gameThree[7] + gameThree[8] + gameThree[9] + '| \t')
   print('|' + gameOne[4] + gameOne[5] + gameOne[6] + '|' + gameTwo[4] + gameTwo[5] + gameTwo[6] + '|' + gameThree[4] + gameThree[5] + gameThree[6] + '| \t')
   print('|' + gameOne[1] + gameOne[2] + gameOne[3] + '|' + gameTwo[1] + gameTwo[2] + gameTwo[3] + '|' + gameThree[1] + gameThree[2] + gameThree[3] + '| \t')
 
 
-#Prints visual representation of global board...
+#Prints visual representation of global board... (RW)
 
 #Top row: 7, 8, 9
 #Middle row: 4, 5, 6
 #Bottom 3 rows: 1 2 3
 
-def chose_player_letter():
+def chose_player_letter():              #this function prompts the players on whether they want to be  "X" or "O"? (RW)                
 
-  letter = ''
-  while not (letter == 'X' or letter == 'O'):
-    print("Do you want to play as 'X' or 'O'?")
-    letter = input().upper()
+  letter = ''                                          
+  while not (letter == 'X' or letter == 'O'):           
+    print("Do you want to play as 'X' or 'O'?")        
+    letter = input().upper()                            
 
 
   if letter == 'X':
@@ -62,15 +64,18 @@ def chose_player_letter():
   else:
     return ['O', 'X']
 
-def who_go_first():
-  if random.randint(0,1) == 0:
-    return '1'              #placeholder for player1's move
+def who_go_first():                    #this function will randomly determine whether player 1 or player 2 will go first. (RW)
+    
+  if random.randint(0,1) == 0:         #this is why imported random, this randomly determines which player will go first. (RW)
+    return '1'                         #for player 1, they can move first. (RW)
 
   else:
-    return '2'              #placeholder for player2's move
+    return '2'                         #for player 2, they can move first. (RW)
 
 #need a function where we prompt the player1 or player2 (whoever goes first) on which gam (out of 9) they want to play in.
-          #and prompts them to make a move
+#and prompts them to make a move
+    
+#-----------------------------Ray's section ends here^^^^^.
 
 def choose_board(number):
     print("Which board does player", number ,"want to go to?")

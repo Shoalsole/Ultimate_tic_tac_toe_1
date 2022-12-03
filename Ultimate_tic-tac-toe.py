@@ -1,5 +1,5 @@
 #Authors:
-#John Huynh, Quinn Wesener, Ray Wang, Xin Wen Du 
+#John Huynh (JH), Quinn Wesener (QW), Ray Wang (RW), Xin Wen Du (XD)
 
 import random
 

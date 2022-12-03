@@ -92,6 +92,9 @@
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Insert variable and import declearations
 
+#Authors:
+#John Huynh, Quinn Wesener, Ray Wang, Xin Wen Du 
+
 import random
 
 

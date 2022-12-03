@@ -1,97 +1,3 @@
-#This is the python file for Tic-tac-toe-ultimate. Note that the regular tic-tac-toe code is on Quinn's repo. 
-
-
-# Notes from Tuesday...
-
-#gameOne = [" "]*10
-#gameTwo = [" "]*10
-#gameThree = [" "]*10
-#gameFour = [" "]*10
-#gameFive = [" "]*10
-#gameSix = [" "]*10
-#gameSeven = [" "]*10
-#gameEight = [" "]*10
-#gameNine = [" "]*10
-
-#games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
-#gameState = games.copy()
-  
-  #startGame will be the choice of the game that we start in
-  #we are doing two player
-  # moveOne is the move by player one
-  # moveTwo is the move by player two
-  
-  #playerOneLetter
-  #playerTwoLetter
-  
-  #1. print the game
-  #2. print the game we're curruently playing in (RAY)
-  
-  
-  #3. swap between games/play in the proper game (XIUWEN)
-  
-  
-  #4. local win conditions (QUINN)
-  #5. global win conditions
-  
-  
-  #7. Starting the game -while game is playing loop (JOHN)
-  
-  
-  
-  
-  #nextGame[moveOne] = playerOneLetter
-  #nextGame = (moveOne-1) 
-  
-  #nextGame = 5
-  #moveOne from player 
-  #play moveOne in nextGame - games[nextGame-1][moveOne] = playerOneLetter 
-  #change game - nextGame
-  
-  #moveTwo from player2
-  #play moveTwo in nextGame
-  #change game - reassign nextGame
-  
-  #moveOne from player 1
-  #play moveOne in nextGame
-  #ghange game - reassign nextGame
-  
-  
-  #isWinner(games[4],playerOneLetter)
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations 
-  
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations
-
-# def whatiftie():
-#     if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-#          drawBoard(gamestate)
-#          print('The game is a tie!')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#      turn = 'player1'
-#     if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-#          drawBoard(gamestate)
-#          print('The game is a tie!')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#      turn = 'player2'
-#     if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-#          gameState[nextGame-1] = ('')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#          turn = 'player1'
-#     if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-#         gameState[nextGame-1] = ('')
-#         else:
-#          turn = 'player2'
-# I ended up being able to use globalIsFull to check for ties
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations
-
 #Authors:
 #John Huynh, Quinn Wesener, Ray Wang, Xin Wen Du 
 
@@ -167,8 +73,9 @@ def who_go_first():
           #and prompts them to make a move
 
 def choose_board(number):
-    selection=' '
-    while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(games[nextGame-1],int(selection)):
+    print("Which board does player", number ,"want to go to?")
+    selection = input()
+    while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isGameStateFree(gameState,int(selection)):
       print("Which board does player", number ,"want to go to?")
       selection = input()
     return int(selection)
@@ -176,6 +83,9 @@ def choose_board(number):
 def isSpaceFree(board, move):
       # Return True if the passed move is free on the passed board.
       return board[move] == '.'
+
+def isGameStateFree(board,move):
+        return board[move-1] == ' '
 
 def localWin(game,player): #game is in reference to which game is being checked, meaning it will be one of the game lists. Player is the player letter
   return ((game[7] == player and game[8] == player and game[9] == player) or
@@ -312,26 +222,153 @@ while True:
   playAgain = input("The game has ended. Would you like to play again?")
   if playAgain.upper().startswith("N"):
     break
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #This is the python file for Tic-tac-toe-ultimate. Note that the regular tic-tac-toe code is on Quinn's repo. 
 
 
+# Notes from Tuesday...
 
+#gameOne = [" "]*10
+#gameTwo = [" "]*10
+#gameThree = [" "]*10
+#gameFour = [" "]*10
+#gameFive = [" "]*10
+#gameSix = [" "]*10
+#gameSeven = [" "]*10
+#gameEight = [" "]*10
+#gameNine = [" "]*10
 
+#games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
+#gameState = games.copy()
+  
+  #startGame will be the choice of the game that we start in
+  #we are doing two player
+  # moveOne is the move by player one
+  # moveTwo is the move by player two
+  
+  #playerOneLetter
+  #playerTwoLetter
+  
+  #1. print the game
+  #2. print the game we're curruently playing in (RAY)
+  
+  
+  #3. swap between games/play in the proper game (XIUWEN)
+  
+  
+  #4. local win conditions (QUINN)
+  #5. global win conditions
+  
+  
+  #7. Starting the game -while game is playing loop (JOHN)
+  
+  
+  
+  
+  #nextGame[moveOne] = playerOneLetter
+  #nextGame = (moveOne-1) 
+  
+  #nextGame = 5
+  #moveOne from player 
+  #play moveOne in nextGame - games[nextGame-1][moveOne] = playerOneLetter 
+  #change game - nextGame
+  
+  #moveTwo from player2
+  #play moveTwo in nextGame
+  #change game - reassign nextGame
+  
+  #moveOne from player 1
+  #play moveOne in nextGame
+  #ghange game - reassign nextGame
+  
+  
+  #isWinner(games[4],playerOneLetter)
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Insert variable and import declearations 
+  
 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Insert variable and import declearations
 
+# def whatiftie():
+#     if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+#          drawBoard(gamestate)
+#          print('The game is a tie!')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#      turn = 'player1'
+#     if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+#          drawBoard(gamestate)
+#          print('The game is a tie!')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#      turn = 'player2'
+#     if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
+#          gameState[nextGame-1] = ('')
+#          break #Stop the loop, thus ending the game(QW)
+#         else:
+#          turn = 'player1'
+#     if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
+#         gameState[nextGame-1] = ('')
+#         else:
+#          turn = 'player2'
+# I ended up being able to use globalIsFull to check for ties
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Insert variable and import declearations

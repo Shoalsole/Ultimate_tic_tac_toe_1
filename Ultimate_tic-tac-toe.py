@@ -4,18 +4,18 @@
 import random
 
 
-def globalIsFull(board):
+def globalIsFull(board): #function checks if the overall board(global) is full (JH)
     for i in range(0,9):
         if board[i] == " ":
             return False
     return True
-def localIsFull(board):
+def localIsFull(board): #function checks the nine individual boards(local) is full (JH)
     for i in range(0,9):
         if isSpaceFree(board,i):
             return False
     return True
 
-def gameIsDone(gameState,nextGame):
+def gameIsDone(gameState,nextGame): #function checks whether the game is done (JH)
   if gameState[nextGame-1] != " ":
     return True
   else:
@@ -77,7 +77,7 @@ def who_go_first():                    #this function will randomly determine wh
     
 #-----------------------------Ray's section ends here^^^^^.
 
-def choose_board(number):
+def choose_board(number): #function that ask what board the current player wants to go to (JH)
     print("Which board does player", number ,"want to go to?")
     selection = input()
     while selection not in '1 2 3 4 5 6 7 8 9'.split() or not isGameStateFree(gameState,int(selection)):

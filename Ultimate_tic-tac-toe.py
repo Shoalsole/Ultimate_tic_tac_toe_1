@@ -157,7 +157,7 @@ print('-------------------------')
 
 
 while True:
-  gameOne = ["."]*10
+  gameOne = ["."]*10 #Make the list of each local game (QW)
   gameTwo = ["."]*10
   gameThree = ["."]*10
   gameFour = ["."]*10
@@ -167,43 +167,38 @@ while True:
   gameEight = ["."]*10
   gameNine = ["."]*10
 
-  games = [gameOne,gameTwo,gameThree,gameFour,gameFive,gameSix,gameSeven,gameEight,gameNine]
+  games = [gameOne,gameTwo,gameThree,gameFour,gameFive,gameSix,gameSeven,gameEight,gameNine] #Make the master list that holds each local game, so that they are easily accessible (QW)
   gameState = [" "]*9
-  playerOneLetter,playerTwoLetter = chose_player_letter()
+  playerOneLetter,playerTwoLetter = chose_player_letter() #Pick the player letters. The following line just prints them (QW)
   print("Player one is",playerOneLetter,"and player two is",playerTwoLetter,"\n",sep=" ")
-  turn = who_go_first()
+  turn = who_go_first() #Pick who goes first (QW)
   print("Player "+turn + " will go first \n")
-  nextGame = 0 #This is here so that the next line doesn't break the code
+  nextGame = 0 #This is here so that the next line doesn't break the code, as choose_board uses the variable nextGame so it must be defined (QW)
   nextGame = choose_board(turn)
-  gameIsPlaying = True
-
-
-
-#call the function that decides the first board here
+  gameIsPlaying = True #Start the game!
 
   while gameIsPlaying:
-    if turn == "1":
-      print_board()
-      if gameIsDone(gameState,nextGame):
-        nextGame = choose_board("1")
+    if turn == "1": #Player ones turn (QW)
+      print_board() #Print the board (QW)
+      if gameIsDone(gameState,nextGame): #Check if the board the player is expected to play in is inacessible (its a tie/its been won). For more information about this mechanic, see the rules pdf (QW)
+        nextGame = choose_board("1") #They get to pick their board, if the previous statement was true (QW)
       print("player one is playing in board",nextGame)
-      move = getPlayerMove(games[nextGame-1])
-      makeMove(games,playerOneLetter,move)
+      move = getPlayerMove(games[nextGame-1]) #Get the player move for the proper board (QW)
+      makeMove(games,playerOneLetter,move) #Make the move on the proper board (QW)
 
-
-      if localWin(games[nextGame-1],playerOneLetter):
+      if localWin(games[nextGame-1],playerOneLetter): #Has the player won the local game they've played in? (QW)
         gameState[nextGame-1] = playerOneLetter
-      if globalWin(gameState,playerOneLetter): #this function will always be called with gameState
+      if globalWin(gameState,playerOneLetter): #Has the player won the global game? (QW) 
         print("player one has won! Congratulations!")
         break
-      if globalIsFull(gameState):
+      if globalIsFull(gameState): #Is the global game a tie? (QW)
         print("The game is a tie!")
         break
-      if localIsFull(games[nextGame-1]):
+      if localIsFull(games[nextGame-1]): #Is the local game a tie? (QW)
         gameState[nextGame-1] = "tie"
-      nextGame = move
+      nextGame = move #Reassign nextGame to the board that player two is expected to play on (QW)
       turn = "2"
-    else:
+    else: #The same process follows, except its for player two (QW)
       print_board()
       if gameIsDone(gameState,nextGame):
         nextGame = choose_board("2")
@@ -211,9 +206,9 @@ while True:
       move = getPlayerMove(games[nextGame-1])
       makeMove(games,playerTwoLetter,move)
 
-      if localWin(games[nextGame-1],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won
+      if localWin(games[nextGame-1],playerTwoLetter): #This would be how you use the localWin function to check if one of the games has been won (QW)
         gameState[nextGame-1] = playerTwoLetter
-      if globalWin(gameState,playerTwoLetter): #this function will always be called with gameState
+      if globalWin(gameState,playerTwoLetter): #this function will always be called with gameState (QW)
         print("player two has won! Congratulations!")
         break
       if globalIsFull(gameState):
@@ -224,156 +219,8 @@ while True:
       nextGame = move
       turn = "1"
 
-  playAgain = input("The game has ended. Would you like to play again?")
-  if playAgain.upper().startswith("N"):
+  playAgain = input("The game has ended. Would you like to play again?") #Once the gameIsPlaying loop is broken, they will be prompted on whether or not they'd like to continue (QW)
+  if playAgain.upper().startswith("N"): #If they say no, stop the game (QW)
     break
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    #This is the python file for Tic-tac-toe-ultimate. Note that the regular tic-tac-toe code is on Quinn's repo. 
-
-
-# Notes from Tuesday...
-
-#gameOne = [" "]*10
-#gameTwo = [" "]*10
-#gameThree = [" "]*10
-#gameFour = [" "]*10
-#gameFive = [" "]*10
-#gameSix = [" "]*10
-#gameSeven = [" "]*10
-#gameEight = [" "]*10
-#gameNine = [" "]*10
-
-#games = [gameOne,gameTwo,gameThree,gameFour,gameFive,fiveSix,fiveSeven,gameEight,gameNine]
-#gameState = games.copy()
-  
-  #startGame will be the choice of the game that we start in
-  #we are doing two player
-  # moveOne is the move by player one
-  # moveTwo is the move by player two
-  
-  #playerOneLetter
-  #playerTwoLetter
-  
-  #1. print the game
-  #2. print the game we're curruently playing in (RAY)
-  
-  
-  #3. swap between games/play in the proper game (XIUWEN)
-  
-  
-  #4. local win conditions (QUINN)
-  #5. global win conditions
-  
-  
-  #7. Starting the game -while game is playing loop (JOHN)
-  
-  
-  
-  
-  #nextGame[moveOne] = playerOneLetter
-  #nextGame = (moveOne-1) 
-  
-  #nextGame = 5
-  #moveOne from player 
-  #play moveOne in nextGame - games[nextGame-1][moveOne] = playerOneLetter 
-  #change game - nextGame
-  
-  #moveTwo from player2
-  #play moveTwo in nextGame
-  #change game - reassign nextGame
-  
-  #moveOne from player 1
-  #play moveOne in nextGame
-  #ghange game - reassign nextGame
-  
-  
-  #isWinner(games[4],playerOneLetter)
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations 
-  
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations
-
-# def whatiftie():
-#     if globalisfull(gamestate) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-#          drawBoard(gamestate)
-#          print('The game is a tie!')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#      turn = 'player1'
-#     if globalisfull(gamestate) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-#          drawBoard(gamestate)
-#          print('The game is a tie!')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#      turn = 'player2'
-#     if localisfull(nextGame) and turn == 'player2': #Check if the board is full, and thus a tie (QW)
-#          gameState[nextGame-1] = ('')
-#          break #Stop the loop, thus ending the game(QW)
-#         else:
-#          turn = 'player1'
-#     if localisfull(nextGame) and turn == 'player1': #Check if the board is full, and thus a tie (QW)
-#         gameState[nextGame-1] = ('')
-#         else:
-#          turn = 'player2'
-# I ended up being able to use globalIsFull to check for ties
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Insert variable and import declearations
+ 

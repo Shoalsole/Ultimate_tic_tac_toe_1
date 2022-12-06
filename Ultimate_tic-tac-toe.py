@@ -118,6 +118,8 @@ def globalTie(board):
         return False
     return True # returns True else wise. (XD)
 
+#----------------------------------------Quinn's section starts below.
+
 def getPlayerMove(board):
 # Let the player enter their move.
     move = ' '

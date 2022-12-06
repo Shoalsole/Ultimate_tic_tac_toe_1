@@ -89,11 +89,11 @@ def isSpaceFree(board, move):
       # Return True if the passed move is free on the passed board.
       return board[move] == '.'
 
-def isGameStateFree(board,move):
+def isGameStateFree(board,move):        
         return board[move-1] == ' '
 
 def localWin(game,player): #game is in reference to which game is being checked, meaning it will be one of the game lists. Player is the player letter
-  return ((game[7] == player and game[8] == player and game[9] == player) or
+  return ((game[7] == player and game[8] == player and game[9] == player) or    #Checks Local win conditions for all 3x3 patterns (XD)
   (game[4] == player and game[5] == player and game[6] == player) or
   (game[1] == player and game[2] == player and game[3] == player) or
   (game[7] == player and game[4] == player and game[1] == player) or
@@ -103,7 +103,7 @@ def localWin(game,player): #game is in reference to which game is being checked,
   (game[9] == player and game[5] == player and game[1] == player))
 
 def globalWin(gameState,player):
-  return ((gameState[6] == player and gameState[7] == player and gameState[8] == player) or
+  return ((gameState[6] == player and gameState[7] == player and gameState[8] == player) or #Checks for Global win conditions for all 3x3 local win patterns (XD)
   (gameState[3] == player and gameState[4] == player and gameState[5] == player) or
   (gameState[0] == player and gameState[1] == player and gameState[2] == player) or
   (gameState[6] == player and gameState[3] == player and gameState[0] == player) or

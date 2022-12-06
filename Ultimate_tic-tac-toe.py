@@ -76,6 +76,7 @@ def who_go_first():                    #this function will randomly determine wh
 #and prompts them to make a move
     
 #-----------------------------Ray's section ends here^^^^^.
+#-----------------------------John's section starts here.
 
 def choose_board(number): #function that ask what board the current player wants to go to (JH)
     print("Which board does player", number ,"want to go to?")
@@ -91,7 +92,10 @@ def isSpaceFree(board, move):
 
 def isGameStateFree(board,move):        
         return board[move-1] == ' '
-
+    
+#-------------------John's section ends here.
+#-------------------Xiu Wen's section starts here.
+    
 def localWin(game,player): #game is in reference to which game is being checked, meaning it will be one of the game lists. Player is the player letter
   return ((game[7] == player and game[8] == player and game[9] == player) or    #Checks Local win conditions for all 3x3 patterns (XD)
   (game[4] == player and game[5] == player and game[6] == player) or
@@ -118,6 +122,7 @@ def globalTie(board):
         return False
     return True # returns True else wise. (XD)
 
+#----------------------------------------Xiu Wen's section ends here.
 #----------------------------------------Quinn's section starts below.
 
 def getPlayerMove(board):
